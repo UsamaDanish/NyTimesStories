@@ -9,6 +9,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
+import { AppApiService } from '../shared/services';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatGridListModule,
-  ]
+  ],
+  providers: [AppApiService]
 })
 export class AuthenticationModule { }
