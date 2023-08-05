@@ -1,20 +1,8 @@
-.stories-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 10px;
+.container-div {
+    display: flex; justify-content: center; flex-direction: column; text-align: center; padding: 30px
 }
 
-.card-style {
-    max-width: 350px;
-    text-align: initial;
-    min-width: 350px;
-    margin: 20px;
-    min-height: 259px;
-    justify-content: space-between;
-}
-
-@media only screen and (max-width: 768px) { 
+/* @media only screen and (max-width: 768px) { 
     .card-style {
         max-width: 300px;
         text-align: initial;
@@ -29,5 +17,5 @@
         flex-direction: row;
         justify-content: center;
     }
-}
+} */
 

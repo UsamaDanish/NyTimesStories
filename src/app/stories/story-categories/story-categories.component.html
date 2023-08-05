@@ -1,0 +1,11 @@
+<label>Select news category</label>
+<br />
+<mat-radio-group color="primary" (change)="handleChange($event)">
+    <mat-radio-button value="world">
+        world
+    </mat-radio-button>
+    <mat-radio-button value="science">
+        science
+    </mat-radio-button>
+</mat-radio-group>
+<div *ngIf="selectedNewsCategory">displaying news for {{selectedNewsCategory}} category</div>

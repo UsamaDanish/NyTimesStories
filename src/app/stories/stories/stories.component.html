@@ -1,76 +1,15 @@
 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" [selectedIndex]="selectedTab"
   (selectedIndexChange)="switchTab()">
   <mat-tab label="Top News" class="text-center">
-    <div class="md-padding"
-      style="display: flex; justify-content: center; flex-direction: column; text-align: center; padding: 30px">
-      <label>Select news category</label>
-      <br />
-      <mat-radio-group color="primary" (change)="handleChange($event)">
-        <mat-radio-button value="world">
-          world
-        </mat-radio-button>
-        <mat-radio-button value="science">
-          science
-        </mat-radio-button>
-      </mat-radio-group>
-      <div *ngIf="selectedNewsCategory">displaying news for {{selectedNewsCategory}} category</div>
-      <div class="stories-wrapper">
-        <ng-container *ngFor="let story of stories">
-          <mat-card *ngIf="story.title && story.abstract" class="card-style">
-            <mat-card-header>
-              <mat-card-subtitle> {{ story.item_type }} </mat-card-subtitle>
-              <mat-card-title> {{ story.title }} </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>{{ story.abstract }}</p>
-              <p>{{ story.published_date | date }}</p>
-              <mat-divider></mat-divider>
-            </mat-card-content>
-            <mat-card-actions>
-              <button (click)="navigateToStoryDetails(story.uri)" mat-raised-button color="primary">Read More</button>
-            </mat-card-actions>
-          </mat-card>
-        </ng-container>
-      </div>
+    <div class="container-div">
+      <app-story-categories />
+      <app-story-cards />
     </div>
   </mat-tab>
   <mat-tab label="Search Articles">
-    <div style="display: flex; justify-content: center; flex-direction: column; text-align: center; padding: 30px">
-      <form [formGroup]="searchForm" (search)="onSearch()">
-        <mat-form-field>
-          <input matInput [matAutocomplete]="auto" type="search" placeholder="Search..." formControlName="searchText">
-        </mat-form-field>
-        <mat-autocomplete (optionSelected)="onSearch($event.option.value)" #auto="matAutocomplete">
-          <mat-option *ngFor="let option of searchHistory" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-autocomplete>
-        <br />
-      </form>
-      <div style="padding: 15px;">
-        <mat-paginator *ngIf="stories.length" hidePageSize="true" [length]="length" (page)="changePage($event)"
-          [pageSizeOptions]="pageSizeOptions">
-        </mat-paginator>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; padding: 15px;">
-
-        <ng-container *ngFor="let story of stories">
-          <mat-card *ngIf="story.title && story.abstract" class="card-style">
-            <mat-card-header>
-              <mat-card-subtitle> {{ story.item_type }} </mat-card-subtitle>
-              <mat-card-title> {{ story.title }} </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>{{ story.abstract }}</p>
-              <p>{{ story.published_date | date }}</p>
-              <mat-divider></mat-divider>
-            </mat-card-content>
-            <mat-card-actions>
-              <button (click)="navigateToStoryDetails(story.uri)" mat-raised-button color="primary">Read More</button>
-            </mat-card-actions>
-          </mat-card>
-        </ng-container>
-      </div>
+    <div class="container-div">
+      <app-search-articles />
+      <app-story-cards />
     </div>
   </mat-tab>
 </mat-tab-group>

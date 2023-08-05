@@ -1,0 +1,25 @@
+.stories-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-style {
+    max-width: 350px;
+    text-align: initial;
+    min-width: 350px;
+    margin: 20px;
+    min-height: 259px;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) { 
+    .card-style {
+        max-width: 300px;
+        text-align: initial;
+        min-width: 300px;
+        margin: 20px;
+        min-height: 259px;
+        justify-content: space-between;
+    }
+}

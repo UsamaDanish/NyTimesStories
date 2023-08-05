@@ -16,11 +16,17 @@ import { StoryDetailsComponent } from './story-details/story-details.component';
 import { StoriesRoutingModule } from './stories-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { StoryCardsComponent } from './story-cards/story-cards.component';
+import { StoryCategoriesComponent } from './story-categories/story-categories.component';
+import { SearchArticlesComponent } from './search-articles/search-articles.component';
 
 @NgModule({
   declarations: [
     StoriesComponent,
-    StoryDetailsComponent
+    StoryDetailsComponent,
+    StoryCardsComponent,
+    StoryCategoriesComponent,
+    SearchArticlesComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,16 @@
+<form [formGroup]="searchForm" (search)="onSearch()">
+    <mat-form-field>
+      <input matInput [matAutocomplete]="auto" type="search" placeholder="Search..." formControlName="searchText">
+    </mat-form-field>
+    <mat-autocomplete (optionSelected)="onSearch($event.option.value)" #auto="matAutocomplete">
+      <mat-option *ngFor="let option of searchHistory" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+    <br />
+  </form>
+  <div style="padding: 15px;">
+    <mat-paginator *ngIf="searched" hidePageSize="true" [length]="length" (page)="changePage($event)"
+      [pageSizeOptions]="pageSizeOptions">
+    </mat-paginator>
+  </div>
