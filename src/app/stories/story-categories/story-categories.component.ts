@@ -14,7 +14,7 @@ export class StoryCategoriesComponent {
   selectedNewsCategory: string = "";
 
   constructor(private newsService: NewsApiService, private store: Store<{ stories: any }>) {
-    
+
   }
 
   handleChange(event: MatRadioChange) {

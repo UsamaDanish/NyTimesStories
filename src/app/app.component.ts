@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AppLoadingService } from './shared/services';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ny-times-stories';
+  isLoading: Subject<boolean> = this.appLoadingService.isLoading;
+
+  constructor(private appLoadingService: AppLoadingService) {}
+
+
 }

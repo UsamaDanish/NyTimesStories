@@ -1,0 +1,8 @@
+.loading-bar-container {
+    margin: auto;
+    height: 40%;
+    width: 10%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
