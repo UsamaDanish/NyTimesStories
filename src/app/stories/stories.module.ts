@@ -7,6 +7,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 import { StoriesComponent } from './stories/stories.component';
 import { StoryDetailsComponent } from './story-details/story-details.component';
@@ -26,7 +27,8 @@ import { StoriesRoutingModule } from './stories-routing.module';
     NgFor,
     MatCardModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class StoriesModule { }

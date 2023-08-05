@@ -1,1 +1,18 @@
-<p>story-details works!</p>
+<ng-container *ngIf="story;else not_found" style="display: flex; flex-direction: column; padding: 40px">
+    <p style="text-align: end;">Published On: {{ story.published_date | date }} </p>
+    <p style="text-align: end;">Published By: {{ story.byline | uppercase }} </p>
+    <p style="font-weight: bold; font-style: italic;">{{ story.title }}</p>
+    <p>{{ story.abstract }}</p>
+    <ng-container *ngIf="story.multimedia.length">
+        <img style="width: 100%;" [src]="story.multimedia[0].url" [alt]="story.title" />
+    </ng-container>
+</ng-container>
+
+<ng-template #not_found>
+    Article you are looking for does not exists. please try again.
+</ng-template>
+
+<p (click)="goBack()" class="back-div">
+    <mat-icon aria-hidden="false" fontIcon="arrow_back"></mat-icon>
+    Go Back
+</p>

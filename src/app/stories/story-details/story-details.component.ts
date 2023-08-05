@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Location } from '@angular/common';
+
+import { Stories } from '../models';
 
 @Component({
   selector: 'app-story-details',
@@ -6,5 +11,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./story-details.component.css']
 })
 export class StoryDetailsComponent {
+  id: string = "";
+  story: Stories | null = null;
+
+  constructor(private activatedRoute: ActivatedRoute, private store: Store<any>, private location: Location) {
+    this.activatedRoute.params.subscribe((x) => {
+      this.id = x['id'];
+
+      if (this.id) {
+        this.getStoryFromStore(this.id);
+      }
+    })
+  }
+
+
+  getStoryFromStore = (id: string) => {
+    this.store.select('stories').subscribe({
+      next: (data) => {
+        this.story = data.stories.find((x: Stories) => x.uri.includes(id));
+      },
+      error: (err) => console.log(err, 'err')
+    })
+  }
+
+  goBack() {
+    this.location.back();
+  }
+
 
 }

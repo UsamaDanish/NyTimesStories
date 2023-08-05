@@ -1,0 +1,16 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.back-div {
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    justify-content: left;
+    display: flex;
+    align-items: self-end;
+    padding-top: 20px;
+    cursor: pointer;
+}

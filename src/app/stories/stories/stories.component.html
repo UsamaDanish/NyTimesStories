@@ -26,12 +26,10 @@
               <mat-divider></mat-divider>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button color="primary">Read More</button>
+              <button (click)="navigateToStoryDetails(story.uri)" mat-raised-button color="primary">Read More</button>
             </mat-card-actions>
           </mat-card>
         </ng-container>
-
-        <!-- <div *ngFor="let story of stories"> {{ story.abstract }} </div> -->
       </div>
     </div>
   </mat-tab>
