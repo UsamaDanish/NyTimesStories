@@ -26,8 +26,6 @@ export class AuthService {
                     exp: number
                 } = jwtDecode(token);
 
-                console.log(decoded, 'decoded')
-
                 if (decoded && Date.now() <= decoded.exp * 1000) {
                     return true
                 }
