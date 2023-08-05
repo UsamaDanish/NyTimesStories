@@ -17,16 +17,18 @@ export class LoginComponent {
   });
 
   constructor(private appApiService: AppApiService) {
-    
+
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.appApiService.login(this.loginForm.value.email!, this.loginForm.value.password!).pipe(first()).subscribe({
-        next: (data) => {
-          console.log(data, 'data');
-        }
-      });
+      // this.appApiService.login(this.loginForm.value.email!, this.loginForm.value.password!).pipe(first()).subscribe({
+      //   next: (data) => {
+      //     console.log(data, 'data');
+      //   }
+      // });
+
+      this.appApiService.login(this.loginForm.value.email!, this.loginForm.value.password!)
     }
   }
 }

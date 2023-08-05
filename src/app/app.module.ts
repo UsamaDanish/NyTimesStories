@@ -12,7 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { StoriesModule } from './stories/stories.module';
 import { storiesReducer } from './shared/store/reducers';
 import { ApiAuthInterceptor } from './shared/interceptors';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [

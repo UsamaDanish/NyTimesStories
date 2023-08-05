@@ -21,11 +21,13 @@ export class SignUpComponent {
 
   onSubmit() {
     if (this.signUpForm.valid) {
-      this.appApiService.signUp(this.signUpForm.value.email!, this.signUpForm.value.password!).pipe(first()).subscribe({
-        next: (data) => {
-          console.log(data, 'data');
-        }
-      });
+      // this.appApiService.signUp(this.signUpForm.value.email!, this.signUpForm.value.password!).pipe(first()).subscribe({
+      //   next: (data) => {
+      //     console.log(data, 'data');
+      //   }
+      // });
+
+      this.appApiService.signUp(this.signUpForm.value.email!, this.signUpForm.value.password!);
     }
   }
 }
