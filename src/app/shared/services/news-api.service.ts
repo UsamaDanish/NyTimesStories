@@ -22,6 +22,6 @@ export class NewsApiService {
     }
 
     searchArticles(searchText: string, page: number) {
-        return this.http.get<any>(`${this.baseUrl}${API_URLS.searchArticles(searchText, this.apiKey)}`);
+        return this.http.get<any>(`${this.baseUrl}${API_URLS.searchArticles(searchText, this.apiKey, page)}`);
     }
 }

@@ -3,8 +3,8 @@
     <p style="text-align: end;">Published By: {{ story.byline | uppercase }} </p>
     <p style="font-weight: bold; font-style: italic;">{{ story.title }}</p>
     <p>{{ story.abstract }}</p>
-    <ng-container *ngIf="story.multimedia.length">
-        <img style="width: 100%;" [src]="story.multimedia[0].url" [alt]="story.title" />
+    <ng-container *ngIf="story.multimedia!.length">
+        <img style="width: 100%;" [src]="story.multimedia![0].url" [alt]="story.title" />
     </ng-container>
 </ng-container>
 

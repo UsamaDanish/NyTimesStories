@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Location } from '@angular/common';
 
 import { Stories } from '../models';
+import { setStories } from 'src/app/shared/store/actions';
 
 @Component({
   selector: 'app-story-details',
@@ -35,6 +36,7 @@ export class StoryDetailsComponent {
   }
 
   goBack() {
+    this.store.dispatch(setStories({ stories: [] }))
     this.location.back();
   }
 

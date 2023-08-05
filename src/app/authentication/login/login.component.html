@@ -1,21 +1,20 @@
 <div class="container-div">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="pat@example.com" formControlName="email">
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="password" formControlName="password" type="password">
+    </mat-form-field>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="pat@example.com" formControlName="email">
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput placeholder="password" formControlName="password" type="password">
-      </mat-form-field>
-  
-      <p>Complete the form to enable button.</p>
-      <div class="buttons-div">
-        <button type="submit" [disabled]="!loginForm.valid" mat-raised-button color="primary">Login</button>
-        <button type="button" routerLink="/" mat-button color="secondary">Sign Up</button>
-      </div>
-  
-    </form>
-  </div>
+    <p>Complete the form to enable button.</p>
+    <div class="buttons-div">
+      <button type="submit" [disabled]="!loginForm.valid" mat-raised-button color="primary">Login</button>
+      <button type="button" routerLink="/" mat-button color="secondary">Sign Up</button>
+    </div>
+
+  </form>
+</div>
