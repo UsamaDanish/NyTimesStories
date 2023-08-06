@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StoryCardsComponent } from './story-cards.component';
+import { provideMockStore } from '@ngrx/store/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('StoryCardsComponent', () => {
   let component: StoryCardsComponent;
@@ -8,7 +10,9 @@ describe('StoryCardsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [StoryCardsComponent]
+      providers: [provideMockStore({})],
+      declarations: [StoryCardsComponent],
+      imports: [MatSnackBarModule]
     });
     fixture = TestBed.createComponent(StoryCardsComponent);
     component = fixture.componentInstance;

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StoryCategoriesComponent } from './story-categories.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+import { MatRadioModule } from '@angular/material/radio';
 
 describe('StoryCategoriesComponent', () => {
   let component: StoryCategoriesComponent;
@@ -8,7 +11,9 @@ describe('StoryCategoriesComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [StoryCategoriesComponent]
+      providers: [provideMockStore({})],
+      declarations: [StoryCategoriesComponent],
+      imports: [HttpClientTestingModule, MatRadioModule]
     });
     fixture = TestBed.createComponent(StoryCategoriesComponent);
     component = fixture.componentInstance;
