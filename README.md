@@ -10,7 +10,9 @@ Package manager: npm 9.6.4
 Authentication Server: Perform following steps to start location authentication server.
 
 i. `git clone https://github.com/techiediaries/fake-api-jwt-json-server.git`
+
 ii. `npm install`
+
 iii. `npm run start-auth`
 
 ## Development server
