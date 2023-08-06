@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
 import { Store } from '@ngrx/store';
+
 import { NewsApiService } from 'src/app/shared/services';
 import { StoriesResponse } from '../models';
 import { setStories } from 'src/app/shared/store/actions';
@@ -25,8 +26,7 @@ export class StoryCategoriesComponent {
         if (data && data.results && data.results.length) {
           this.store.dispatch(setStories({ stories: data.results }))
         }
-      },
-      error: (err) => console.log(err, 'error')
+      }
     })
   }
 }

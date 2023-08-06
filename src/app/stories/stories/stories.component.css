@@ -1,21 +1,7 @@
 .container-div {
-    display: flex; justify-content: center; flex-direction: column; text-align: center; padding: 30px
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px
 }
-
-/* @media only screen and (max-width: 768px) { 
-    .card-style {
-        max-width: 300px;
-        text-align: initial;
-        min-width: 300px;
-        margin: 20px;
-        min-height: 259px;
-        justify-content: space-between;
-    }
-
-    .stories-wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-} */
-

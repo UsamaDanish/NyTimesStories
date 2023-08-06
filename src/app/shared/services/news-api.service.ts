@@ -1,10 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { map, tap, catchError } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
 
 import { environment } from "src/environments/environment";
-import { CONSTANTS } from "../constants";
 import { API_URLS } from "../constants/api-urls.constants";
 
 @Injectable({

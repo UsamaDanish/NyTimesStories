@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { PageEvent } from '@angular/material/paginator';
+
 import { NewsApiService } from 'src/app/shared/services';
 import { SearchArticlesResponse, Stories } from '../models';
 import { setStories } from 'src/app/shared/store/actions';
-import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-search-articles',
@@ -14,6 +14,7 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class SearchArticlesComponent {
   searchHistory: string[] = [];
+  searchText = "";
   page = 0;
   length = 1000;
   pageSize = 10;
@@ -23,17 +24,19 @@ export class SearchArticlesComponent {
   });
   searched = false;
 
-  constructor(private newsService: NewsApiService, private store: Store<{ stories: any }>, private router: Router) {
+  constructor(private newsService: NewsApiService, private store: Store<{ stories: any }>) {
    
   }
 
   onSearch(selectedOption = "") {
-    const searchText = selectedOption ? selectedOption : this.searchForm.value.searchText;
+    this.searchText = selectedOption ? selectedOption as string : this.searchForm.value.searchText as string;
+    
     this.searched = true;
-    this.newsService.searchArticles(searchText!, this.page).subscribe({
+    
+    this.newsService.searchArticles(this.searchText, this.page).subscribe({
       next: (data: SearchArticlesResponse) => {
         if (data && data.response && data.response.docs) {
-          this.saveSearchHistory(searchText!)
+          this.saveSearchHistory(this.searchText)
 
           this.length = data.response.meta.hits;
 
@@ -50,8 +53,7 @@ export class SearchArticlesComponent {
 
           this.store.dispatch(setStories({ stories: formattedArray }))
         }
-      },
-      error: (err) => console.log(err, 'error')
+      }
     })
   }
 
@@ -74,6 +76,6 @@ export class SearchArticlesComponent {
   changePage(event: PageEvent) {
     this.page = event.pageIndex;
 
-    this.onSearch("");
+    this.onSearch(this.searchText);
   }
 }

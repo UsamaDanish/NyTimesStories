@@ -2,22 +2,20 @@ import { Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
-  HttpEvent,
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
+
 import { AppLoadingService, AppSnackbarService } from '../services';
-import { environment } from 'src/environments/environment';
-import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class ApiAuthInterceptor implements HttpInterceptor {
   private totalRequests = 0;
 
-  constructor(private loadingService: AppLoadingService, private snackbarService: AppSnackbarService, private authService: AuthService) { }
+  constructor(private loadingService: AppLoadingService, private snackbarService: AppSnackbarService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     this.totalRequests++;

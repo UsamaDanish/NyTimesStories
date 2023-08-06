@@ -9,7 +9,7 @@
     </mat-autocomplete>
     <br />
   </form>
-  <div style="padding: 15px;">
+  <div class="container-padding">
     <mat-paginator *ngIf="searched" hidePageSize="true" [length]="length" (page)="changePage($event)"
       [pageSizeOptions]="pageSizeOptions">
     </mat-paginator>

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { first } from 'rxjs';
-import { AppApiService } from 'src/app/shared/services/app-api.service';
+
+import { AppApiService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-login',
@@ -22,12 +22,6 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // this.appApiService.login(this.loginForm.value.email!, this.loginForm.value.password!).pipe(first()).subscribe({
-      //   next: (data) => {
-      //     console.log(data, 'data');
-      //   }
-      // });
-
       this.appApiService.login(this.loginForm.value.email!, this.loginForm.value.password!)
     }
   }

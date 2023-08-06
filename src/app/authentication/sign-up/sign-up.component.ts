@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { first } from 'rxjs';
 
 import { AppApiService } from 'src/app/shared/services';
-
 
 @Component({
   selector: 'app-sign-up',
@@ -17,16 +15,10 @@ export class SignUpComponent {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private appApiService: AppApiService){}
+  constructor(private appApiService: AppApiService) { }
 
   onSubmit() {
     if (this.signUpForm.valid) {
-      // this.appApiService.signUp(this.signUpForm.value.email!, this.signUpForm.value.password!).pipe(first()).subscribe({
-      //   next: (data) => {
-      //     console.log(data, 'data');
-      //   }
-      // });
-
       this.appApiService.signUp(this.signUpForm.value.email!, this.signUpForm.value.password!);
     }
   }

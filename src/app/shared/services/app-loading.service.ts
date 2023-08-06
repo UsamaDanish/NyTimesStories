@@ -8,19 +8,12 @@ export class AppLoadingService {
 
   isLoading = new Subject<boolean>();
 
-  constructor() {
-  }
+  constructor() { }
 
-  /**
-   * Service function to show the loader
-   */
   show() {
     this.isLoading.next(true);
   }
 
-  /**
-   * Service function to hide the loader
-   */
   hide() {
     this.isLoading.next(false);
   }

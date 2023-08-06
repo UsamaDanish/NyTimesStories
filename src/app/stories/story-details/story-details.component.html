@@ -1,4 +1,4 @@
-<ng-container *ngIf="story;else not_found" style="display: flex; flex-direction: column; padding: 40px">
+<ng-container *ngIf="story;else not_found" class="container-div">
     <p style="text-align: end;">Published On: {{ story.published_date | date }} </p>
     <p style="text-align: end;">Published By: {{ story.byline | uppercase }} </p>
     <p style="font-weight: bold; font-style: italic;">{{ story.title }}</p>

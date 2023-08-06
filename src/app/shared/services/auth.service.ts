@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import jwtDecode from "jwt-decode";
-import { AppApiService } from "./app-api.service";
+
 import { CONSTANTS } from "../constants";
+import { JWTModel } from "../models";
 
 @Injectable({
     providedIn: 'root'
@@ -22,13 +23,12 @@ export class AuthService {
             const token = localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY);
 
             if (token) {
-                const decoded: {
-                    exp: number
-                } = jwtDecode(token);
+                const decoded: JWTModel = jwtDecode(token);
 
                 if (decoded && Date.now() <= decoded.exp * 1000) {
                     return true
                 }
+
                 this.router.navigate(['/']);
 
                 return false;

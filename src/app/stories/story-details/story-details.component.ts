@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 
 import { Stories } from '../models';
 import { setStories } from 'src/app/shared/store/actions';
+import { AppSnackbarService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-story-details',
@@ -14,9 +15,10 @@ import { setStories } from 'src/app/shared/store/actions';
 export class StoryDetailsComponent {
   id: string = "";
   story: Stories | null = null;
+  subscription;
 
-  constructor(private activatedRoute: ActivatedRoute, private store: Store<any>, private location: Location) {
-    this.activatedRoute.params.subscribe((x) => {
+  constructor(private activatedRoute: ActivatedRoute, private store: Store<any>, private location: Location, private appSnackbar: AppSnackbarService) {
+    this.subscription = this.activatedRoute.params.subscribe((x) => {
       this.id = x['id'];
 
       if (this.id) {
@@ -31,7 +33,7 @@ export class StoryDetailsComponent {
       next: (data) => {
         this.story = data.stories.find((x: Stories) => x.uri.includes(id));
       },
-      error: (err) => console.log(err, 'err')
+      error: (err) => this.appSnackbar.open(err.toString())
     })
   }
 
@@ -40,5 +42,8 @@ export class StoryDetailsComponent {
     this.location.back();
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
 }

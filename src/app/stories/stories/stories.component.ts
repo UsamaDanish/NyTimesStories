@@ -11,9 +11,7 @@ import { setStories } from 'src/app/shared/store/actions';
 export class StoriesComponent {
   selectedTab = 0;
 
-  constructor(private store: Store<{ stories: any }>) {
-
-  }
+  constructor(private store: Store<{ stories: any }>) { }
 
   switchTab() {
     this.store.dispatch(setStories({ stories: [] }))
